@@ -81,7 +81,7 @@ open class BarcodeScannerController: UIViewController {
     }()
 
   /// Video preview layer.
-  var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+  public var videoPreviewLayer: AVCaptureVideoPreviewLayer?
 
   /// The current controller's status mode.
   var status: Status = Status(state: .scanning) {
@@ -162,7 +162,7 @@ open class BarcodeScannerController: UIViewController {
   public weak var dismissalDelegate: BarcodeScannerDismissalDelegate?
 
   /// Flag to lock session from capturing.
-  var locked = false
+  public var locked = false
 
   // MARK: - Initialization
 
