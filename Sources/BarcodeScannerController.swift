@@ -52,7 +52,7 @@ open class BarcodeScannerController: UIViewController {
     return button
     }()
   
-  var shouldAnimateFlash: Bool = true
+  open var shouldAnimateFlash: Bool = true
 
   /// Animated focus view.
   lazy var focusView: UIView = {
