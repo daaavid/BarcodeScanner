@@ -51,6 +51,8 @@ open class BarcodeScannerController: UIViewController {
 
     return button
     }()
+  
+  var shouldAnimateFlash: Bool = true
 
   /// Animated focus view.
   lazy var focusView: UIView = {
@@ -434,7 +436,12 @@ extension BarcodeScannerController: AVCaptureMetadataOutputObjectsDelegate {
       locked = true
     }
 
-    animateFlash(whenProcessing: isOneTimeSearch)
+    if shouldAnimateFlash {
+      animateFlash(whenProcessing: isOneTimeSearch)
+    } else {
+      defer { status = Status(state: .processing) }
+    }
+    
     codeDelegate?.barcodeScanner(self, didCaptureCode: code, type: metadataObj.type)
   }
 }
