@@ -37,6 +37,9 @@ open class BarcodeScannerController: UIViewController {
 
   /// Header view with title and close button.
   lazy var headerView: HeaderView = HeaderView()
+  open var showHeaderView: Bool = false {
+    didSet { headerView.isHidden = !showHeaderView }
+  }
 
   /// Information view with description label.
   lazy var infoView: InfoView = InfoView()
