@@ -132,7 +132,7 @@ open class BarcodeScannerController: UIViewController {
   }
 
   /// The current torch mode on the capture device.
-  var torchMode: TorchMode = .off {
+  open var torchMode: TorchMode = .off {
     didSet {
       guard captureDevice.hasFlash else { return }
 
@@ -172,6 +172,7 @@ open class BarcodeScannerController: UIViewController {
   // MARK: - Initialization
 
   deinit {
+    torchMode = .off
     NotificationCenter.default.removeObserver(self)
   }
 
